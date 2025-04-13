@@ -125,7 +125,7 @@
             <ul class="service-features">
               <li><i class="fas fa-check"></i> Techniques avancées</li>
               <li><i class="fas fa-check"></i> Préparation compétition</li>
-              <li><i class="fas fa-check"></i> Conseil nutritionnel</li>
+              <li><i class="fas fa-check"></i> Conseils nutritionnels</li>
               <li>
                 <i class="fas fa-check"></i> Suivi régulier et personnalisé
               </li>
@@ -146,7 +146,7 @@
             </p>
             <ul class="service-features">
               <li><i class="fas fa-check"></i> Hypertrophie ciblée</li>
-              <li><i class="fas fa-check"></i> Conseil nutritionnel</li>
+              <li><i class="fas fa-check"></i> Conseils nutritionnels</li>
               <li><i class="fas fa-check"></i> Progression constante</li>
               <li>
                 <i class="fas fa-check"></i> Suivi régulier et personnalisé
@@ -168,7 +168,7 @@
             </p>
             <ul class="service-features">
               <li><i class="fas fa-check"></i> Perte de masse grasse</li>
-              <li><i class="fas fa-check"></i> Conseil nutritionnel</li>
+              <li><i class="fas fa-check"></i> Conseils nutritionnels</li>
               <li><i class="fas fa-check"></i> Tonification musculaire</li>
               <li>
                 <i class="fas fa-check"></i> Suivi régulier et personnalisé
@@ -179,6 +179,8 @@
         </div>
       </div>
     </section>
+
+    <!-- Section Témoignages -->
     <section class="testimonials" id="temoignages">
       <div class="section-header">
         <h2 class="section-title">Témoignages</h2>
@@ -245,12 +247,7 @@
             de technique d'optimisation, d'adaptation... On as bcp retravaillé
             la technique sur mon SBD ce qui m'a fait bcp progresser et évoluer
             physiquement et mentalement. Anael nous pousse à nous dépasser, à
-            performer, par ces conseils précieux et ses encouragements. Lors de
-            ma première compétition régionale en juin dernier il nous a géré
-            d'une main de maftre et nous a encourager à donner le meilleur de
-            nous-mêmes. Maintenant l'objectif est de faire encore mieux en
-            octobre. Merci la Team (anael et ambre) pour votre implication et
-            votre travail on va faire de belle choses ensemble.
+            performer, par ces conseils précieux et ses encouragements.
           </p>
           <div class="client">
             <div class="client-info">
@@ -268,9 +265,7 @@
             de I'écoute lors des entraînements et sa maîtrise des différents
             exercices. Je vous conseille fortement de prendre un accompagnement
             en présentiel, c'est là que vous pourrez atteindre votre plein
-            potentiel avec son soutien! Que ce soit pour prendre ou perdre
-            quelques kilos ou performer dans votre sport, n'hésitez pas à faire
-            appel à lui
+            potentiel avec son soutien!
           </p>
           <div class="client">
             <div class="client-info">
@@ -281,19 +276,14 @@
         </div>
         <div class="testimonial">
           <div class="quote"><i class="fas fa-quote-left"></i></div>
-          <p>Faut être clair, j'ai jamais eu de
-            personnalisation aussi poussée c'est
-            de 2 semaines en 2 voir à la semaine.
-            J'étais complètement incapable de
-            recommencer le squat malgré de
-            coaching X a 135+/mois. En 2 bloc
-            on fait pr +30 au squat sur du calibre.
-            Also, il est toujours présent pour faire
-            des retours même en live. Conseils
-            excellent et une vrai connaissance de
-            la programmation et technique. C'est
-            RAS pour rien au monde je retourne
-            vers les pseudo coach que j'avais</p>
+          <p>
+            Faut être clair, j'ai jamais eu de personnalisation aussi poussée
+            c'est de 2 semaines en 2 voir à la semaine. J'étais complètement
+            incapable de recommencer le squat malgré de coaching X à 135+/mois.
+            En 2 bloc on fait pr +30 au squat sur du calibre. Also, il est
+            toujours présent pour faire des retours même en live. Conseils
+            excellent et une vrai connaissance de la programmation et technique.
+          </p>
           <div class="client">
             <div class="client-info">
               <h4>Sam T.</h4>
@@ -302,7 +292,9 @@
           </div>
         </div>
       </div>
+      <!-- Les contrôles du slider seront ajoutés automatiquement par JavaScript -->
     </section>
+
     <section class="cta" id="contact">
       <div class="cta-container">
         <h2>Prêt à transformer votre physique?</h2>
@@ -344,7 +336,9 @@
         <div class="footer-section">
           <h3>Contact</h3>
           <ul class="footer-contact">
-            <li><i class="far fa-envelope"></i> fate.hybrid.strength@gmail.com</li>
+            <li>
+              <i class="far fa-envelope"></i> fate.hybrid.strength@gmail.com
+            </li>
             <!-- <li><i class="fas fa-phone"></i> +33 6 XX XX XX XX</li> -->
             <li><i class="fas fa-map-marker-alt"></i> Toulouse</li>
           </ul>
@@ -354,52 +348,8 @@
         <p>&copy; 2025 FateStrength | Tous droits réservés</p>
       </div>
     </footer>
-    <!-- Scripts -->
+
+    <!-- Script unique - tout le JavaScript est maintenant dans le fichier script.js -->
     <script src="script.js"></script>
-    <script>
-      document
-        .querySelector(".menu-toggle")
-        .addEventListener("click", function () {
-          document.querySelector(".nav-links").classList.toggle("active");
-        });
-
-      // Fonction pour optimiser l'affichage des images de service
-      function optimizeServiceImages() {
-        const serviceImages = document.querySelectorAll(".service-img");
-
-        serviceImages.forEach((imgContainer) => {
-          const bgImage = window.getComputedStyle(imgContainer).backgroundImage;
-          const url = bgImage.match(/url\(['"]?(.*?)['"]?\)/)?.[1];
-
-          if (url) {
-            const img = new Image();
-            img.src = url;
-
-            img.onload = function () {
-              const ratio = img.width / img.height;
-
-              if (ratio > 1.5) {
-                imgContainer.style.backgroundPosition = "center center";
-              } else if (ratio < 0.8) {
-                imgContainer.style.backgroundPosition = "center top";
-              } else {
-                imgContainer.style.backgroundSize = "cover";
-                imgContainer.style.backgroundPosition = "center center";
-              }
-
-              imgContainer.classList.add("optimized");
-            };
-
-            img.onerror = function () {
-              console.warn(`Impossible de charger l'image: ${url}`);
-              imgContainer.style.backgroundColor = "var(--gray-dark)";
-            };
-          }
-        });
-      }
-
-      // Exécuter l'optimisation après le chargement de la page
-      window.addEventListener("load", optimizeServiceImages);
-    </script>
   </body>
 </html>

@@ -418,15 +418,6 @@ nav {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* .service-img {
-    height: 200px;
-    background-color: var(--gray-medium);
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;
-} */
-
 .service-img {
     height: 250px; /* Hauteur augmentée pour mieux afficher les images */
     background-color: var(--gray-medium);
@@ -496,7 +487,7 @@ nav {
     margin-right: 0.5rem;
 }
 
-/* Testimonials */
+/* Testimonials Section */
 .testimonials {
     padding: 6rem 1rem;
     background-color: var(--gray-light);
@@ -513,50 +504,139 @@ nav {
     background: linear-gradient(to right, transparent, var(--gray-medium), transparent);
 }
 
+/* Conteneur principal optimisé pour un témoignage à la fois */
 .testimonials-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    max-width: 1200px;
+    position: relative;
+    max-width: 800px;
     margin: 0 auto;
+    padding: 1rem 0 3rem;
+    overflow: hidden;
 }
 
+/* Slider de témoignages */
+.testimonials-slider {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+    height: auto;
+    width: 100%;
+}
+
+/* Style des témoignages individuels */
 .testimonial {
+    min-width: 100%;
+    width: 100%;
+    flex-shrink: 0;
     background-color: var(--white);
     border-radius: 12px;
-    padding: 2rem;
+    padding: 3rem 2.5rem 2rem;
     box-shadow: 0 10px 30px var(--shadow);
-    max-width: 500px;
     position: relative;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    margin: 0;
+    transform-origin: center center;
 }
 
+/* Témoignage actif */
+.testimonial.active {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+/* Icône de citation */
 .quote {
     color: var(--color-accent);
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
     opacity: 0.3;
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
 }
 
+/* Texte du témoignage */
 .testimonial p {
     font-style: italic;
-    margin-bottom: 1.5rem;
+    margin: 1rem 0 1.5rem;
     color: var(--text-dark);
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+    padding-left: 0.5rem;
+    font-size: 1.05rem;
 }
 
+/* Information du client */
 .client {
     display: flex;
     align-items: center;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--gray-light);
+    padding-top: 1.5rem;
 }
 
 .client-info h4 {
     color: var(--color-primary);
     margin-bottom: 0.2rem;
+    font-weight: 700;
 }
 
 .client-info span {
-    color: var(--gray-dark);
+    color: var(--color-accent);
     font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Contrôles du carrousel */
+.testimonial-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Flèches de navigation */
+.testimonial-arrow {
+    background-color: var(--white);
+    color: var(--color-primary);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px var(--shadow);
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    z-index: 2;
+}
+
+.testimonial-arrow:hover {
+    background-color: var(--color-accent);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+/* Points indicateurs */
+.testimonial-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.testimonial-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--gray-medium);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.testimonial-dot.active {
+    background-color: var(--color-accent);
+    transform: scale(1.2);
 }
 
 /* CTA Section */
@@ -811,6 +891,27 @@ footer {
     .service-card:hover .service-img {
         height: 230px;
     }
+    
+    /* Ajustements responsifs pour le carrousel de témoignages */
+    .testimonial {
+        padding: 2.5rem 1.5rem 1.5rem;
+    }
+    
+    .testimonial p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    
+    .testimonial-controls {
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .testimonial-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -842,4 +943,60 @@ footer {
     .service-card {
         width: 100%;
     }
+}
+
+/* Corrections pour le carrousel de témoignages */
+/* Ces corrections garantissent que le slider fonctionne correctement */
+.testimonials-slider {
+  display: flex;
+  transition: transform 0.6s ease;
+  width: 100%;
+  position: relative;
+}
+
+/* S'assurer que le container permet le défilement horizontal */
+.testimonials-container {
+  overflow: hidden;
+  position: relative;
+  min-height: 200px;
+}
+
+/* Chaque témoignage occupe 100% de la largeur */
+.testimonial {
+  min-width: 100%;
+  width: 100%;
+  flex-shrink: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform-origin: center center;
+}
+
+/* Le témoignage actif est visible */
+.testimonial.active {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+/* Styles des contrôles pour qu'ils soient bien visibles */
+.testimonial-controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.testimonial-dots {
+  display: flex;
+  gap: 8px;
+}
+
+/* Garantir que les flèches sont cliquables */
+.testimonial-arrow {
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* Au cas où le JavaScript échoue, afficher au moins le premier témoignage */
+.testimonial:first-child {
+  display: block;
 }
